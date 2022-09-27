@@ -2,7 +2,7 @@ FROM maven:3.8.1-jdk-11
 
 # Google Chrome
 
-ARG CHROME_VERSION=102.0.5005.63
+ARG CHROME_VERSION=106.0.5249.61/62
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
 	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
 	&& apt-get update -qqy \
@@ -13,7 +13,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 
 # ChromeDriver
 
-ARG CHROME_DRIVER_VERSION=102.0.5005.61
+ARG CHROME_DRIVER_VERSION=106.0.5249.21
 RUN wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip \
 	&& unzip /tmp/chromedriver_linux64.zip -d /opt \
 	&& rm /tmp/chromedriver_linux64.zip \
